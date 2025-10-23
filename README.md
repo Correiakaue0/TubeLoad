@@ -1,77 +1,59 @@
-📦 YouTube Video Downloader Console App
+# 📦 YouTube Video Downloader Console App
 
-Este é um projeto de Console App em C# (.NET 8) que permite baixar vídeos do YouTube em MP4, com áudio e vídeo mesclados. O projeto utiliza yt-dlp para download e ffmpeg para mesclar áudio e vídeo, exibindo uma barra de progresso fiel diretamente no console.
+Este é um projeto de **Console App em C# (.NET 8)** que permite baixar vídeos do **YouTube** em **MP4** com áudio e vídeo mesclados. O projeto utiliza **yt-dlp** para download e **ffmpeg** para mesclar o áudio e vídeo, exibindo uma **barra de progresso** fiel diretamente no console.
 
-🚀 Tecnologias Utilizadas
+---
 
-.NET 8
- – plataforma principal
+## 🛠 Pré-requisitos
+### yt-dlp
+Baixe o executável mais recente: [yt-dlp Releases](https://github.com/yt-dlp/yt-dlp/releases) 
+Coloque o arquivo yt-dlp.exe na pasta Patch do projeto:
+```
+TubeLoad/Patch/yt-dlp.exe
+```
 
-C#
- – linguagem principal
+### FFmpeg
+Baixe o build completo: [FFmpeg Builds](https://www.gyan.dev/ffmpeg/builds/) 
+Extraia o conteúdo do .zip ou .7z dentro dessa pasta.
+Depois de extrair, a estrutura deve ficar assim: 
+```
+C:\ffmpeg\ffmpeg-6.0-full_build\bin\ffmpeg.exe
+```
+Coloque ffmpeg.exe na mesma pasta Patch:
+```
+TubeLoad/Patch/ffmpeg.exe
+TubeLoad/Patch/ffplay.exe
+TubeLoad/Patch/ffprobe.exe
+```
+⚠️ Importante: o GitHub não deve conter a pasta Patch com executáveis. Ela está ignorada no .gitignore. Cada usuário deve baixar os executáveis separadamente.
 
-yt-dlp
- – download de vídeos do YouTube
-
-FFmpeg
- – mescla de áudio + vídeo
-
-Console App – interface simples e direta
-
-🧱 Estrutura do Projeto
-ConsoleApp1/
-├── Patch/                 # Contém yt-dlp.exe e ffmpeg.exe (não versionada no GitHub)
-├── Program.cs             # Código principal do Console App
-├── ConsoleApp1.csproj
-└── downloads/             # Pasta onde os vídeos baixados serão salvos
-
-
+## 🧱 Arquitetura do Projeto
+```
+TubeLoad/
+├── Patch # <- Contém yt-dlp.exe e ffmpeg.exe (não versionada no GitHub)
+├── Program.cs #  <- Código principal
+├── TubeLoad.csproj
+├── downloads #  <- Pasta onde os vídeos baixados serão salvos
+```
 ⚠️ Patch: Cada usuário deve baixar os executáveis yt-dlp.exe e ffmpeg.exe e colocar nesta pasta. Ela não está versionada no GitHub.
 
-🔐 Segurança e Boas Práticas
+---
 
-Uso legal: Apenas faça download de vídeos que você tem direito de acessar.
+## ⚡ Como usar
 
-Sem binários no repositório: yt-dlp e ffmpeg não estão incluídos, evitando problemas de tamanho e licenciamento.
+- Abra o projeto no Visual Studio ou VS Code.
+- Cole a URL do vídeo do YouTube quando solicitado:```🔗 Cole a URL do YouTube: https://www.youtube.com/watch?v=dQw4w9WgXcQ```
+- O download começará e mostrará o progresso em tempo real.
+- Ao finalizar, o vídeo será salvo na pasta downloads.
 
-Código limpo e extensível: Fácil de adaptar para playlists, downloads de áudio, ou integração em outros projetos.
+---
 
-📄 Principais Funcionalidades
+## 📄 Funcionalidades
 
-✅ Baixa vídeos do YouTube em MP4 com áudio + vídeo mesclados
+- ✅ Baixa vídeos do YouTube em MP4 com áudio + vídeo mesclados.
+- ✅ Detecta yt-dlp.exe e ffmpeg.exe na pasta Patch.
+- ✅ Mostra barra de progresso fiel a 100% no console.
+- ✅ Salva vídeos na pasta downloads automaticamente.
 
-✅ Barra de progresso visual e fiel a 100%
-
-✅ Detecta automaticamente yt-dlp e ffmpeg na pasta Patch
-
-✅ Mensagens informativas de extração, download e merge
-
-✅ Cria a pasta downloads automaticamente para armazenar os vídeos
-
-⚡ Como Usar
-
-Baixe yt-dlp.exe e ffmpeg.exe e coloque na pasta Patch/.
-
-Compile e execute o projeto:
-
-dotnet run
-
-
-Cole a URL do vídeo do YouTube quando solicitado:
-
-🔗 Cole a URL do YouTube: https://www.youtube.com/watch?v=dQw4w9WgXcQ
-
-
-Acompanhe o progresso no console.
-
-O vídeo será salvo automaticamente na pasta downloads/.
-
-💡 Possíveis Melhorias Futuras
-
-Suporte a playlists completas
-
-Opção para baixar apenas áudio (MP3)
-
-Exibição de ETA e velocidade mais detalhada
-
-Cancelamento de downloads via console
+---
+Desenvolvido por Kauê Correia
